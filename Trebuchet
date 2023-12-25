@@ -1,0 +1,18 @@
+def getFirstLast(string):
+    first=-1
+    last=None
+    for letter in string:
+        if letter.isnumeric():
+            if first == -1:
+                first=letter
+            else:
+                last=letter
+    if not last:
+        last=first
+    return ''.join([first,last])
+with open('TrebuchetInput.txt') as input:
+    cal_value=0
+    for line in input:
+        cal_value+=int(getFirstLast(line))
+        print(getFirstLast(line))
+        print(cal_value)
